@@ -3,7 +3,7 @@ import './LogoPage.css'
 import Settings from './Settings';
 
 
-const LogoPage = ( { onTextColorChange } ) => {
+const LogoPage = ( { onColorChange } ) => {
   // const handleTextColorChange = (color) => {
   //   console.log('Text color changed:', color);
   // }
@@ -20,7 +20,7 @@ const LogoPage = ( { onTextColorChange } ) => {
             </button>
         </div>
         {/* <Settings onChangeTextColor={handleTextColorChange} /> */}
-        <Settings  onTextColorChange={onTextColorChange} />
+        <Settings  onColorChange={onColorChange} />
     </div>
   )
 }

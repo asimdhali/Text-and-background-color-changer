@@ -1,33 +1,47 @@
 import React, { useState, useEffect } from 'react';
 
-const Settings = ({ onTextColorChange }) => {
-  const [selectedColor, setSelectedColor] = useState('black');
+const Settings = ({ onColorChange }) => {
+  const [selectedTextColor, setSelectedTextColor] = useState('black');
+  const [selectedBgColor, setSelectedBgColor] = useState('white');
 
   useEffect(() => {
-    // Retrieve saved color from localStorage
-    const savedColor = localStorage.getItem('textColor');
-    setSelectedColor(savedColor || 'black');
+    const savedTextColor = localStorage.getItem('textColor') || 'black';
+    const savedBgColor = localStorage.getItem('bgColor') || 'white';
+
+    setSelectedTextColor(savedTextColor);
+    setSelectedBgColor(savedBgColor);
   }, []);
 
-  const handleColorChange = (event) => {
+  const handleColorChange = (type, event) => {
     const color = event.target.value;
-    setSelectedColor(color);
-    // Save selected color to localStorage
-    localStorage.setItem('textColor', color);
-    // Notify parent component about the color change
-    onTextColorChange(color);
+
+    if (type === 'textColor') {
+      setSelectedTextColor(color);
+    } else if (type === 'bgColor') {
+      setSelectedBgColor(color);
+    }
+
+    onColorChange(type, color);
   };
 
   return (
     <div>
-      <label htmlFor="textColor">Text Color</label>
-      <input
-        type="color"
-        id="textColor"
-        value={selectedColor}
-        onChange={handleColorChange}
-      />
-    </div>
+    <label htmlFor="textColor">Text Color:</label>
+    <input
+      type="color"
+      id="textColor"
+      value={selectedTextColor}
+      onChange={(event) => handleColorChange('textColor', event)}
+    />
+
+    <label htmlFor="bgColor">Background Color:</label>
+    <input
+      type="color"
+      id="bgColor"
+      value={selectedBgColor}
+      onChange={(event) => handleColorChange('bgColor', event)}
+    />
+  </div>
   );
 };
 
