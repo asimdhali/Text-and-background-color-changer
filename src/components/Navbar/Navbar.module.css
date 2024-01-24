@@ -1,0 +1,38 @@
+.ul{
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    /* color: #008957; */
+    list-style-type: none;
+    overflow: hidden;
+    margin-left: 20px;
+    /* margin-left: 70px; */
+}
+
+.a{
+
+    /* background-color: beige; */
+    padding: 12px 20px;
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.a:hover{
+    background-color: #008957;
+    color: white;
+    box-sizing: border-box;
+    
+}
+
+/* .a:active{
+    background-color: yellow;
+    box-sizing: border-box;
+} */
+
+.aActive{
+    background-color: rgb(61, 19, 177);
+    color: white;
+    text-decoration: none;
+    padding: 20px 20px;
+}
